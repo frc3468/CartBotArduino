@@ -96,8 +96,8 @@ void enabled() {
   int8_t leftDriveSpeed = constrain(driveSpeed + driveRotation, SW_MIN, SW_MAX);
   int8_t rightDriveSpeed = constrain(driveSpeed - driveRotation, SW_MIN, SW_MAX);
 
-  uint8_t leftMotorOutput = map(leftDriveSpeed,SW_MIN, SW_MAX, motorMinSpeed, motorMaxSpeed);
-  uint8_t rightMotorOutput = map(rightDriveSpeed, SW_MIN, SW_MAX, motorMaxSpeed, motorMinSpeed); /* Inverted */
+  uint8_t leftMotorOutput = map(leftDriveSpeed,SW_MIN, SW_MAX, motorMaxSpeed, motorMinSpeed); /* Inverted */
+  uint8_t rightMotorOutput = map(rightDriveSpeed, SW_MIN, SW_MAX, motorMinSpeed, motorMaxSpeed);
   
   leftFrontDriveMotor.write(leftMotorOutput);
   leftRearDriveMotor.write(leftMotorOutput);
