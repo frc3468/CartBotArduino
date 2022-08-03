@@ -53,7 +53,7 @@ int8_t driveRotationAxis() {
   return map(driverController.leftX(), HW_MIN, HW_MAX, SW_MIN, SW_MAX);
 }
 
-const int8_t driveMaxSpeed = 50;
+const int8_t driveMaxSpeed = 80;
 const int8_t driveMinSpeed = -1*driveMaxSpeed;
 const uint8_t driveDeadzone = 10;
 
@@ -93,8 +93,8 @@ void enabled() {
     driveRotation = SW_NEUTRAL;
   }
 
-  int8_t leftDriveSpeed = constrain(driveSpeed + driveRotation, SW_MIN, SW_MAX);
-  int8_t rightDriveSpeed = constrain(driveSpeed - driveRotation, SW_MIN, SW_MAX);
+  int8_t leftDriveSpeed = constrain(driveSpeed - driveRotation, SW_MIN, SW_MAX);
+  int8_t rightDriveSpeed = constrain(driveSpeed + driveRotation, SW_MIN, SW_MAX);
 
   uint8_t leftMotorOutput = map(leftDriveSpeed,SW_MIN, SW_MAX, motorMaxSpeed, motorMinSpeed); /* Inverted */
   uint8_t rightMotorOutput = map(rightDriveSpeed, SW_MIN, SW_MAX, motorMinSpeed, motorMaxSpeed);
